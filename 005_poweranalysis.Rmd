@@ -1,0 +1,58 @@
+---
+title: "Appendix"
+output:
+  word_document: default
+  pdf_document: default
+---
+
+### Power analysis
+
+The following code was used to run a power analysis based on the meta-analytic mean.
+
+First, we need to clear up the memory and load the necessary library.
+
+```{r}
+# clear memory
+rm(list=ls())
+
+# package needed
+library(pwr)
+```
+
+Furthermore, we create a function to transform Zr values to r values. This is because
+our meta-analysis was based on Zr values, but what the power analysis is based on r values.
+
+```{r}
+# function to convert Zr to r        
+Zr.to.r<-function(Zr){
+  r<-(exp(2*Zr)-1)/(exp(2*Zr)+1)
+}
+```
+
+### Power analysis
+
+Next, we estimated the sample size necessary to find a effect size as small as the one 
+estimated by our meta-analysis (Zr = 0.20). We used a significance level of 0.05, and the 
+recommended 80% statistical power(Cohen 1988).
+
+```{r}
+pwr.r.test(r = Zr.to.r(0.20), sig.level = 0.05, power = 0.8)
+```
+
+### Power analysis
+
+This shows that we would need the dominance rank and bib size of 198 individuals to find 
+a signicant correlation of 0.20. 
+
+Additionally, we estimated the across-study statistical power of the literature on
+status signalling in house sparrows to compare it the overall statistical power
+found in the literature (Jennions and Moller 2003).
+
+```{r}
+pwr.r.test(n = 10, r = Zr.to.r(0.20), sig.level = 0.05)
+```
+
+### Power analysis
+
+This shows that the statistical power of the sparrow literature on status signalling is
+as low as 8.5%, which is alarming.
