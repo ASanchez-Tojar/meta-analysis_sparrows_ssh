@@ -44,7 +44,7 @@ pwr.r.test(r = Zr.to.r(0.20), sig.level = 0.05, power = 0.8)
 This shows that we would need the dominance rank and bib size of 198 individuals to find 
 a signicant correlation of 0.20. 
 
-Additionally, we estimated the across-study statistical power of the literature on
+Additionally, we estimated the across-study statistical power of the tests on
 status signalling in house sparrows to compare it the overall statistical power
 found in the literature (Jennions and Moller 2003).
 
