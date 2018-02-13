@@ -117,7 +117,7 @@ autocorr(m3$VCV[,c(1,2,4)])
 #extract and summarise DIC
 print(c(m1$DIC,m2$DIC,m3$DIC))
 
-chosen <- m3 #lowest DIC
+chosen <- m2 #lowest DIC
 
 plot(chosen)
 summary(chosen)
@@ -250,7 +250,7 @@ autocorr(m3$VCV[,c(1,2,4)])
 #extract and summarise DIC
 print(c(m1$DIC,m2$DIC,m3$DIC))
 
-chosen <- m2 #lowest DIC
+chosen <- m1 #lowest DIC
 
 plot(chosen)
 summary(chosen)
@@ -388,7 +388,7 @@ autocorr(m3$VCV[,c(1,2,4)])
 #extract and summarise DIC
 print(c(m1$DIC,m2$DIC,m3$DIC))
 
-chosen <- m2 #lowest DIC
+chosen <- m3 #lowest DIC
 
 plot(chosen)
 summary(chosen)
@@ -559,7 +559,9 @@ meta3$int.num <- ifelse(meta3$interactions=="both",0,1)
 meta3$inttype.num <- ifelse(meta3$interactiontype=="mix",0,1)
 
 
-meta_reg3.1 <- MCMCglmm(Zr~scale(season.num)+scale(int.num)+scale(inttype.num),
+meta_reg3.1 <- MCMCglmm(Zr~scale(season.num,scale=FALSE)+
+                          scale(int.num,scale=FALSE)+
+                          scale(inttype.num,scale=FALSE),
                         random=~paperID+popID2,
                         mev=meta3$VZr,
                         data=meta3,
@@ -567,7 +569,9 @@ meta_reg3.1 <- MCMCglmm(Zr~scale(season.num)+scale(int.num)+scale(inttype.num),
                         nitt=2000000,thin=1800,burnin=200000,
                         pr=TRUE,verbose=FALSE,
                         prior=prior1)
-meta_reg3.2 <- MCMCglmm(Zr~scale(season.num)+scale(int.num)+scale(inttype.num),
+meta_reg3.2 <- MCMCglmm(Zr~scale(season.num,scale=FALSE)+
+                          scale(int.num,scale=FALSE)+
+                          scale(inttype.num,scale=FALSE),
                         random=~paperID+popID2,
                         mev=meta3$VZr,
                         data=meta3,
@@ -575,7 +579,9 @@ meta_reg3.2 <- MCMCglmm(Zr~scale(season.num)+scale(int.num)+scale(inttype.num),
                         nitt=2000000,thin=1800,burnin=200000,
                         pr=TRUE,verbose=FALSE,
                         prior=prior1)
-meta_reg3.3 <- MCMCglmm(Zr~scale(season.num)+scale(int.num)+scale(inttype.num),
+meta_reg3.3 <- MCMCglmm(Zr~scale(season.num,scale=FALSE)+
+                          scale(int.num,scale=FALSE)+
+                          scale(inttype.num,scale=FALSE),
                         random=~paperID+popID2,
                         mev=meta3$VZr,
                         data=meta3,
@@ -612,7 +618,7 @@ autocorr(m3$VCV[,c(1,2,4)])
 #extract and summarise DIC
 print(c(m1$DIC,m2$DIC,m3$DIC))
 
-chosen <- m1 #lowest DIC
+chosen <- m3 #lowest DIC
 
 plot(chosen)
 summary(chosen)
@@ -699,7 +705,7 @@ autocorr(m3$VCV[,c(1,2,4)])
 #extract and summarise DIC
 print(c(m1$DIC,m2$DIC,m3$DIC))
 
-chosen <- m2 #lowest DIC
+chosen <- m3 #lowest DIC
 
 plot(chosen)
 summary(chosen)
@@ -790,7 +796,9 @@ meta4$int.num <- ifelse(meta4$interactions=="both",0,1)
 meta4$inttype.num <- ifelse(meta4$interactiontype=="mix",0,1)
 
 
-meta_reg4.1 <- MCMCglmm(Zr~scale(season.num)+scale(int.num)+scale(inttype.num),
+meta_reg4.1 <- MCMCglmm(Zr~scale(season.num,scale=FALSE)+
+                          scale(int.num,scale=FALSE)+
+                          scale(inttype.num,scale=FALSE),
                     random=~paperID+popID2,
                     mev=meta4$VZr,
                     data=meta4,
@@ -798,7 +806,9 @@ meta_reg4.1 <- MCMCglmm(Zr~scale(season.num)+scale(int.num)+scale(inttype.num),
                     nitt=2000000,thin=1800,burnin=200000,
                     pr=TRUE,verbose=FALSE,
                     prior=prior1)
-meta_reg4.2 <- MCMCglmm(Zr~scale(season.num)+scale(int.num)+scale(inttype.num),
+meta_reg4.2 <- MCMCglmm(Zr~scale(season.num,scale=FALSE)+
+                          scale(int.num,scale=FALSE)+
+                          scale(inttype.num,scale=FALSE),
                     random=~paperID+popID2,
                     mev=meta4$VZr,
                     data=meta4,
@@ -806,7 +816,9 @@ meta_reg4.2 <- MCMCglmm(Zr~scale(season.num)+scale(int.num)+scale(inttype.num),
                     nitt=2000000,thin=1800,burnin=200000,
                     pr=TRUE,verbose=FALSE,
                     prior=prior1)
-meta_reg4.3 <- MCMCglmm(Zr~scale(season.num)+scale(int.num)+scale(inttype.num),
+meta_reg4.3 <- MCMCglmm(Zr~scale(season.num,scale=FALSE)+
+                          scale(int.num,scale=FALSE)+
+                          scale(inttype.num,scale=FALSE),
                     random=~paperID+popID2,
                     mev=meta4$VZr,
                     data=meta4,
@@ -842,7 +854,7 @@ autocorr(m3$VCV[,c(1,2,4)])
 #extract and summarise DIC
 print(c(m1$DIC,m2$DIC,m3$DIC))
 
-chosen <- m1 #lowest DIC
+chosen <- m3 #lowest DIC
 
 
 plot(chosen)
@@ -940,7 +952,7 @@ autocorr(m3$VCV[,c(1,2,4)])
 print(c(m1$DIC,m2$DIC,m3$DIC))
 
 
-chosen <- m1 #lowest DIC
+chosen <- m2 #lowest DIC
 
 plot(chosen)
 summary(chosen)
@@ -1037,7 +1049,7 @@ autocorr(m3$VCV[,c(1,2,4)])
 print(c(m1$DIC,m2$DIC,m3$DIC))
 
 
-chosen <- m2 #lowest DIC
+chosen <- m1 #lowest DIC
 
 plot(chosen)
 summary(chosen)
@@ -1075,7 +1087,7 @@ load("processed_data/metadatasets/model_meta3_paper&pop.full.RData")
 meta1 <- meta3.1
 
 load("processed_data/metadatasets/model_meta4_paper&pop.full.RData")
-meta2 <- meta4.2
+meta2 <- meta4.3
 
 
 tiff("Plots/Figure1_forest_plot_meta-analysis.tiff",
@@ -1166,10 +1178,10 @@ dev.off()
 
 #loading models
 load("processed_data/metadatasets/model_meta1_paper&pop.full.RData")
-pub1 <- meta1.3
+pub1 <- meta1.2
 
 load("processed_data/metadatasets/model_meta2_paper&pop.full.RData")
-pub2 <- meta2.2
+pub2 <- meta2.1
 
 
 tiff("Plots/FigureS1_forest_plot_meta-analysis.tiff",
@@ -1259,7 +1271,16 @@ dev.off()
 
 load("processed_data/metadatasets/model_meta_reg2_year_paper&pop.full.RData")
 
-chosen <- meta_reg2.2
+chosen <- meta_reg2.3
+
+# showing overestimated sample sizes
+oesamplesize <- read.table("processed_data/sample_size_overinflated.csv",
+                           header=TRUE,sep=",")
+
+oesamplesize$colour <- ifelse(oesamplesize$groupsreal==1,
+                              rgb(58/255,95/255,205/255, 0.5),
+                              rgb(191/255,239/255,255/255, 0.5))
+
 
 newdat<-expand.grid(year = seq(1985,2016,0.01))
 
@@ -1285,7 +1306,12 @@ newdat$upper<-apply(fitmatboth, 1, quantile, prob= 0.975)
 #############
 # Actual plot
 
-tiff("Plots/main/time-lag_bias_plot_Meta2.tiff",
+meta2 <- read.table("processed_data/metadatasets/Meta2.csv",
+                    header=TRUE,sep=",")
+
+meta2 <- merge(meta2,oesamplesize,by="study",all.x=TRUE)
+
+tiff("Plots/Figure4_time-lag_bias_plot_Meta2.tiff",
      height=10.5, width=10.5,
      units='cm', compression="lzw", res=800)
 
@@ -1328,21 +1354,23 @@ lines(newdat$year, newdat$fit, lwd=3.5,col="royalblue3")
 
 
 points(jitter(xaxis,2),yaxis,
-       bg=rgb(58/255,95/255,205/255, 0.5),
+       #bg=rgb(58/255,95/255,205/255, 0.5),
+       bg=meta2$colour,
        pch=21,
        cex=cex.study)
 
-cex.legend <- c(4/8,10/8,25/8)
+cex.legend <- c(4/8,10/8,20/8)
 
-legend(1985,-1,
-       c("n = 4 birds",
-         "n = 10 birds",
-         "n = 25 birds"),
-       pt.bg=rgb(58/255,95/255,205/255, 0.75),
+legend(1985,-1.3,
+       c("  4 birds",
+         "10 birds",
+         "20 birds"),
+       pt.bg=rgb(224/255,238/255,238/255, 0.95),
+       #pt.bg=rgb(58/255,95/255,205/255, 0.75),
        pt.cex=cex.legend,
        pch=21,
        inset=c(0,0),
-       y.intersp=1,x.intersp=1.3)
+       y.intersp=0.8,x.intersp=1.1)
 
 
 dev.off()
@@ -1356,25 +1384,35 @@ dev.off()
 #first obtaining estimates from the model
 load("processed_data/metadatasets/model_meta_reg6_pubvsunpub_paper&pop.full_0unp_v2.RData")
 
-chosen <- meta_reg6.2
+chosen <- meta_reg6.1
 
 summary(chosen)
 
 
 ##values
-mean.unp <- mean(chosen$Sol[,1])
-lower.unp <- HPDinterval(chosen$Sol[,1])[1]
-upper.unp <- HPDinterval(chosen$Sol[,1])[2]
+newdat<-expand.grid(pubvsunpub = levels(meta3$pubvsunpub))
 
-mean.pub <- mean(chosen$Sol[,2])
-lower.pub <- HPDinterval(chosen$Sol[,2])[1]
-upper.pub <- HPDinterval(chosen$Sol[,2])[2]
+xmat<-model.matrix(~pubvsunpub,data=newdat)
+
+
+fitmatboth <- matrix(NA, 
+                     ncol = nrow(chosen$Sol), 
+                     nrow = nrow(newdat))
+
+
+for(i in 1:nrow(chosen$Sol)) {
+  fitmatboth[,i] <- xmat%*%chosen$Sol[i,c(1,2)]
+}
+
+newdat$fit<-apply(fitmatboth, 1, mean)
+newdat$lower<-apply(fitmatboth, 1, quantile, prob= 0.025)
+newdat$upper<-apply(fitmatboth, 1, quantile, prob= 0.975)
 
 
 #############
 # Actual plot
 
-tiff("Plots/main/published_vs_unpublished.tiff",
+tiff("Plots/Figure3_published_vs_unpublished.tiff",
      height=10.5, width=10.5,
      units='cm', compression="lzw", res=600)
 
@@ -1430,31 +1468,32 @@ polygon(c(c(-1,-1),rev(c(2,2))),
         c(c(-0.549,-1.5),rev(c(-0.549,-1.5))),
         border=NA,col=rgb(0,0,0, 0.25))
 
-arrows(1,lower.unp,
-       1,upper.unp,
+
+arrows(1,newdat$lower[1],
+       1,newdat$upper[1],
        angle=90,code=3,
        col=rgb(1,165/255,0,0.85),
        length = 0,lwd=3.5)
 
-arrows(0,lower.pub,
-       0,upper.pub,
+arrows(0,newdat$lower[2],
+       0,newdat$upper[2],
        angle=90,code=3,
        col=rgb(58/255,95/255,205/255, 0.85),
        length = 0,lwd=3.5)
 
-points(1,mean.unp,
+points(1,newdat$fit[1],
        col=rgb(1,165/255,0,0.95),
        pch=19,
        cex=2)
 
-points(0,mean.pub,
+points(0,newdat$fit[2],
        col=rgb(58/255,95/255,205/255, 0.95),
        pch=19,
        cex=2)
 
 
-text(0.05,0.96,"k = 53",adj=0.5,cex=1.15)
-text(1.05,0.38,"k = 32",adj=0.5,cex=1.15)
+text(0.04,0.76,"k = 53",adj=0.5,cex=1.15)
+text(1.04,0.38,"k = 32",adj=0.5,cex=1.15)
 
 
 dev.off()
