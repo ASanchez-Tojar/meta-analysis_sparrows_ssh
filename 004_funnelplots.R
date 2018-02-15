@@ -15,8 +15,8 @@
 # This script is to create funnel plots based on meta-analytic
 # residuals.
 
-# Meta-analytic challenge to a textbook example of status
-# signalling: publication trends and biases
+# Meta-analysis challenges a textbook example of status signalling: 
+# evidence for publication bias
 
 # Sanchez-Tojar et al. In prep.
 

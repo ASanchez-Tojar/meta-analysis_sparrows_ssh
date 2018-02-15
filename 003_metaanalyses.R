@@ -17,8 +17,8 @@
 # house sparrows across populations, research groups, etc.
 # The script also generates plots for those analyses.
 
-# Meta-analytic challenge to a textbook example of status
-# signalling: publication trends and biases
+# Meta-analysis challenges a textbook example of status signalling: 
+# evidence for publication bias
 
 # Sanchez-Tojar et al. In prep.
 
