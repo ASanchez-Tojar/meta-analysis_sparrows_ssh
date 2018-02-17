@@ -1079,6 +1079,185 @@ HPDinterval(R2m)
 
 
 
+# ##############################################################
+# # MANUAL FOREST PLOT: Figure 1 in main text
+# ##############################################################
+# #loading models
+# load("processed_data/metadatasets/model_meta3_paper&pop.full.RData")
+# meta1 <- meta3.1
+# 
+# load("processed_data/metadatasets/model_meta4_paper&pop.full.RData")
+# meta2 <- meta4.3
+# 
+# 
+# tiff("Plots/Figure1_forest_plot_meta-analysis.tiff",
+#      height=10.5, width=10.5,
+#      units='cm', compression="lzw", res=600)
+# 
+# yaxis <- rev(c(1:2))
+# means <- c(mean(meta1$Sol[,1]),mean(meta2$Sol[,1]))
+# lowerCI <- c(HPDinterval(meta1$Sol[,1])[1],
+#              HPDinterval(meta2$Sol[,1])[1])
+# upperCI <- c(HPDinterval(meta1$Sol[,1])[2],
+#              HPDinterval(meta2$Sol[,1])[2])
+# analysis <- c(rep(c("black"),2))
+# 
+# labels <- c("meta 1",
+#             "meta 2")
+# 
+# k <- c(85,87)
+# 
+# 
+# op <- par(mar = c(4.25,4,1,1)) #bottom, left, top, and right. 
+# 
+# plot(means,yaxis,
+#      type="n",
+#      ylab="",
+#      xlab="",
+#      xaxt="n",
+#      yaxt="n",
+#      ylim=c(0.6,2.4),
+#      xlim=c(-0.5,1),
+#      frame.plot=FALSE)
+# 
+# abline(v=0, lwd=1.5, lty=1)
+# 
+# 
+# axis(1,at=seq(-0.5,1,0.5),
+#      labels=c("-0.5","0","0.5","1"),
+#      cex.axis=1.25,tck=-0.02)
+# 
+# axis(2,
+#      at=rev(c(1:2)),
+#      labels=labels,
+#      cex.axis=1.25,las=2,tck=0,lty=0,line=-1)
+# 
+# title(xlab = "effect size (Zr)", line = 2.75, cex.lab=1.75)
+# 
+# polygon(c(c(0.1003,0.310),rev(c(0.1003,0.310))),
+#         c(c(0,0),rev(c(13,13))),
+#         border=NA,col=rgb(0,0,0, 0.07))
+# 
+# polygon(c(c(0.310,0.549),rev(c(0.310,0.549))),
+#         c(c(0,0),rev(c(13,13))),
+#         border=NA,col=rgb(0,0,0, 0.16))
+# 
+# polygon(c(c(0.549,1),rev(c(0.549,1))),
+#         c(c(0,0),rev(c(13,13))),
+#         border=NA,col=rgb(0,0,0, 0.25))
+# 
+# polygon(c(c(-0.1003,-0.310),rev(c(-0.1003,-0.310))),
+#         c(c(0,0),rev(c(13,13))),
+#         border=NA,col=rgb(0,0,0, 0.07))
+# 
+# polygon(c(c(-0.310,-0.5),rev(c(-0.310,-0.5))),
+#         c(c(0,0),rev(c(13,13))),
+#         border=NA,col=rgb(0,0,0, 0.16))
+# 
+# 
+# points(means,yaxis,col=analysis,pch=19,cex=2)
+# 
+# arrows(lowerCI,yaxis,
+#        upperCI,yaxis,
+#        angle=90,code=3,col=analysis,
+#        length = 0,lwd=2.75)
+# 
+# text(0.8,yaxis,k,adj=1,cex=1.15)
+# text(0.77,2.25,"k",adj=1,cex=1.15)
+# 
+# dev.off()
+# 
+# 
+# 
+# ##############################################################
+# # MANUAL FOREST PLOT: SUPPLEMENTS
+# ##############################################################
+# 
+# #loading models
+# load("processed_data/metadatasets/model_meta1_paper&pop.full.RData")
+# pub1 <- meta1.2
+# 
+# load("processed_data/metadatasets/model_meta2_paper&pop.full.RData")
+# pub2 <- meta2.1
+# 
+# 
+# tiff("Plots/FigureS1_forest_plot_meta-analysis.tiff",
+#      height=10.5, width=10.5,
+#      units='cm', compression="lzw", res=600)
+# 
+# yaxis <- rev(c(1:2))
+# means <- c(mean(pub1$Sol[,1]),mean(pub2$Sol[,1]))
+# lowerCI <- c(HPDinterval(pub1$Sol[,1])[1],
+#              HPDinterval(pub2$Sol[,1])[1])
+# upperCI <- c(HPDinterval(pub1$Sol[,1])[2],
+#              HPDinterval(pub2$Sol[,1])[2])
+# analysis <- c(rep(c("black"),2))
+# 
+# labels <- c("published 1",
+#             "published 2")
+# 
+# k <- c(20,53)
+# 
+# 
+# op <- par(mar = c(4.25,5.1,1,1)) #bottom, left, top, and right. 
+# 
+# plot(means,yaxis,
+#      type="n",
+#      ylab="",
+#      xlab="",
+#      xaxt="n",
+#      yaxt="n",
+#      ylim=c(0.6,2.4),
+#      xlim=c(-0.5,1),
+#      frame.plot=FALSE)
+# 
+# abline(v=0, lwd=1.5, lty=1)
+# 
+# 
+# axis(1,at=seq(-0.5,1,0.5),
+#      labels=c("-0.5","0","0.5","1"),
+#      cex.axis=1.25,tck=-0.02)
+# 
+# axis(2,
+#      at=rev(c(1:2)),
+#      labels=labels,
+#      cex.axis=1.15,las=2,tck=0,lty=0,line=-1)
+# 
+# title(xlab = "effect size (Zr)", line = 2.75, cex.lab=1.75)
+# 
+# polygon(c(c(0.1003,0.310),rev(c(0.1003,0.310))),
+#         c(c(0,0),rev(c(13,13))),
+#         border=NA,col=rgb(0,0,0, 0.07))
+# 
+# polygon(c(c(0.310,0.549),rev(c(0.310,0.549))),
+#         c(c(0,0),rev(c(13,13))),
+#         border=NA,col=rgb(0,0,0, 0.16))
+# 
+# polygon(c(c(0.549,1),rev(c(0.549,1))),
+#         c(c(0,0),rev(c(13,13))),
+#         border=NA,col=rgb(0,0,0, 0.25))
+# 
+# polygon(c(c(-0.1003,-0.310),rev(c(-0.1003,-0.310))),
+#         c(c(0,0),rev(c(13,13))),
+#         border=NA,col=rgb(0,0,0, 0.07))
+# 
+# polygon(c(c(-0.310,-0.5),rev(c(-0.310,-0.5))),
+#         c(c(0,0),rev(c(13,13))),
+#         border=NA,col=rgb(0,0,0, 0.16))
+# 
+# 
+# points(means,yaxis,col=analysis,pch=19,cex=2)
+# 
+# arrows(lowerCI,yaxis,
+#        upperCI,yaxis,
+#        angle=90,code=3,col=analysis,
+#        length = 0,lwd=2.75)
+# 
+# text(0.9,yaxis,k,adj=1,cex=1.15)
+# text(0.87,2.25,"k",adj=1,cex=1.15)
+# 
+# dev.off()
+
 ##############################################################
 # MANUAL FOREST PLOT: Figure 1 in main text
 ##############################################################
@@ -1090,83 +1269,95 @@ load("processed_data/metadatasets/model_meta4_paper&pop.full.RData")
 meta2 <- meta4.3
 
 
-tiff("Plots/Figure1_forest_plot_meta-analysis.tiff",
+tiff("Plots/Figure1_forest_plot_meta-analysis-v2.tiff",
      height=10.5, width=10.5,
      units='cm', compression="lzw", res=600)
 
-yaxis <- rev(c(1:2))
-# means <- c(0.229,0.196)
-# lowerCI <- c(0.008,-0.008)
-# upperCI <- c(0.462,0.414)
 means <- c(mean(meta1$Sol[,1]),mean(meta2$Sol[,1]))
 lowerCI <- c(HPDinterval(meta1$Sol[,1])[1],
              HPDinterval(meta2$Sol[,1])[1])
 upperCI <- c(HPDinterval(meta1$Sol[,1])[2],
              HPDinterval(meta2$Sol[,1])[2])
-analysis <- c(rep(c("black"),2))
 
 labels <- c("meta 1",
             "meta 2")
 
-k <- c(85,87)
 
+op <- par(mar = c(3,5,1,1)) #bottom, left, top, and right. 
 
-op <- par(mar = c(4.25,4,1,1)) #bottom, left, top, and right. 
-
-plot(means,yaxis,
+plot(c(0,1),means,
      type="n",
      ylab="",
      xlab="",
      xaxt="n",
      yaxt="n",
-     ylim=c(0.6,2.4),
-     xlim=c(-0.5,1),
-     frame.plot=FALSE)
+     ylim=c(-0.65,0.65),
+     xlim=c(-0.4,1.4))
 
-abline(v=0, lwd=1.5, lty=1)
+abline(a=0,b=0, lwd=1, lty=1)
 
-
-axis(1,at=seq(-0.5,1,0.5),
-     labels=c("-0.5","0","0.5","1"),
+axis(1,at=seq(0,1,1),
+     labels=labels,
      cex.axis=1.25,tck=-0.02)
 
 axis(2,
-     at=rev(c(1:2)),
-     labels=labels,
-     cex.axis=1.25,las=2,tck=0,lty=0,line=-1)
+     at=seq(-1,1,0.5),
+     cex.axis=1.25,las=2,tck=-0.02)
 
-title(xlab = "effect size (Zr)", line = 2.75, cex.lab=1.75)
 
-polygon(c(c(0.1003,0.310),rev(c(0.1003,0.310))),
-        c(c(0,0),rev(c(13,13))),
+title(ylab = "effect size (Zr)",
+      line = 3.25, cex.lab=1.75)
+
+polygon(c(c(-1,-1),rev(c(2,2))),
+        c(c(0.1003,0.310),rev(c(0.1003,0.310))),
         border=NA,col=rgb(0,0,0, 0.07))
 
-polygon(c(c(0.310,0.549),rev(c(0.310,0.549))),
-        c(c(0,0),rev(c(13,13))),
+polygon(c(c(-1,-1),rev(c(2,2))),
+        c(c(0.310,0.549),rev(c(0.310,0.549))),
         border=NA,col=rgb(0,0,0, 0.16))
 
-polygon(c(c(0.549,1),rev(c(0.549,1))),
-        c(c(0,0),rev(c(13,13))),
+polygon(c(c(-1,-1),rev(c(2,2))),
+        c(c(0.549,1.5),rev(c(0.549,1.5))),
         border=NA,col=rgb(0,0,0, 0.25))
 
-polygon(c(c(-0.1003,-0.310),rev(c(-0.1003,-0.310))),
-        c(c(0,0),rev(c(13,13))),
+polygon(c(c(-1,-1),rev(c(2,2))),
+        c(c(-0.1003,-0.310),rev(c(-0.1003,-0.310))),
         border=NA,col=rgb(0,0,0, 0.07))
 
-polygon(c(c(-0.310,-0.5),rev(c(-0.310,-0.5))),
-        c(c(0,0),rev(c(13,13))),
+polygon(c(c(-1,-1),rev(c(2,2))),
+        c(c(-0.310,-0.549),rev(c(-0.310,-0.549))),
         border=NA,col=rgb(0,0,0, 0.16))
 
+polygon(c(c(-1,-1),rev(c(2,2))),
+        c(c(-0.549,-1.5),rev(c(-0.549,-1.5))),
+        border=NA,col=rgb(0,0,0, 0.25))
 
-points(means,yaxis,col=analysis,pch=19,cex=2)
+arrows(0,lowerCI[1],
+       0,upperCI[1],
+       angle=90,code=3,
+       col="black",
+       length = 0,lwd=3.5)
 
-arrows(lowerCI,yaxis,
-       upperCI,yaxis,
-       angle=90,code=3,col=analysis,
-       length = 0,lwd=2.75)
+arrows(1,lowerCI[2],
+       1,upperCI[2],
+       angle=90,code=3,
+       col="black",
+       length = 0,lwd=3.5)
 
-text(0.8,yaxis,k,adj=1,cex=1.15)
-text(0.77,2.25,"k",adj=1,cex=1.15)
+points(0,means[1],
+       col="black",
+       pch=19,
+       cex=2)
+
+points(1,means[2],
+       col="black",
+       pch=19,
+       cex=2)
+
+
+text(0.04,-0.2,"k = 85",adj=0.5,cex=1.15)
+text(1.04,-0.2,"k = 87",adj=0.5,cex=1.15)
+
 
 dev.off()
 
@@ -1184,83 +1375,98 @@ load("processed_data/metadatasets/model_meta2_paper&pop.full.RData")
 pub2 <- meta2.1
 
 
-tiff("Plots/FigureS1_forest_plot_meta-analysis.tiff",
+tiff("Plots/FigureS1_forest_plot_meta-analysis-v2.tiff",
      height=10.5, width=10.5,
      units='cm', compression="lzw", res=600)
 
-yaxis <- rev(c(1:2))
 means <- c(mean(pub1$Sol[,1]),mean(pub2$Sol[,1]))
 lowerCI <- c(HPDinterval(pub1$Sol[,1])[1],
              HPDinterval(pub2$Sol[,1])[1])
 upperCI <- c(HPDinterval(pub1$Sol[,1])[2],
              HPDinterval(pub2$Sol[,1])[2])
-analysis <- c(rep(c("black"),2))
 
 labels <- c("published 1",
             "published 2")
 
-k <- c(20,53)
+
+op <- par(mar = c(3,5,1,1)) #bottom, left, top, and right. 
 
 
-op <- par(mar = c(4.25,5.1,1,1)) #bottom, left, top, and right. 
-
-plot(means,yaxis,
+plot(c(0,1),means,
      type="n",
      ylab="",
      xlab="",
      xaxt="n",
      yaxt="n",
-     ylim=c(0.6,2.4),
-     xlim=c(-0.5,1),
-     frame.plot=FALSE)
+     ylim=c(-0.5,0.8),
+     xlim=c(-0.4,1.4))
 
-abline(v=0, lwd=1.5, lty=1)
+abline(a=0,b=0, lwd=1, lty=1)
 
-
-axis(1,at=seq(-0.5,1,0.5),
-     labels=c("-0.5","0","0.5","1"),
+axis(1,at=seq(0,1,1),
+     labels=labels,
      cex.axis=1.25,tck=-0.02)
 
 axis(2,
-     at=rev(c(1:2)),
-     labels=labels,
-     cex.axis=1.15,las=2,tck=0,lty=0,line=-1)
+     at=seq(-1,1,0.5),
+     cex.axis=1.25,las=2,tck=-0.02)
 
-title(xlab = "effect size (Zr)", line = 2.75, cex.lab=1.75)
 
-polygon(c(c(0.1003,0.310),rev(c(0.1003,0.310))),
-        c(c(0,0),rev(c(13,13))),
+title(ylab = "effect size (Zr)",
+      line = 3.25, cex.lab=1.75)
+
+polygon(c(c(-1,-1),rev(c(2,2))),
+        c(c(0.1003,0.310),rev(c(0.1003,0.310))),
         border=NA,col=rgb(0,0,0, 0.07))
 
-polygon(c(c(0.310,0.549),rev(c(0.310,0.549))),
-        c(c(0,0),rev(c(13,13))),
+polygon(c(c(-1,-1),rev(c(2,2))),
+        c(c(0.310,0.549),rev(c(0.310,0.549))),
         border=NA,col=rgb(0,0,0, 0.16))
 
-polygon(c(c(0.549,1),rev(c(0.549,1))),
-        c(c(0,0),rev(c(13,13))),
+polygon(c(c(-1,-1),rev(c(2,2))),
+        c(c(0.549,1.5),rev(c(0.549,1.5))),
         border=NA,col=rgb(0,0,0, 0.25))
 
-polygon(c(c(-0.1003,-0.310),rev(c(-0.1003,-0.310))),
-        c(c(0,0),rev(c(13,13))),
+polygon(c(c(-1,-1),rev(c(2,2))),
+        c(c(-0.1003,-0.310),rev(c(-0.1003,-0.310))),
         border=NA,col=rgb(0,0,0, 0.07))
 
-polygon(c(c(-0.310,-0.5),rev(c(-0.310,-0.5))),
-        c(c(0,0),rev(c(13,13))),
+polygon(c(c(-1,-1),rev(c(2,2))),
+        c(c(-0.310,-0.549),rev(c(-0.310,-0.549))),
         border=NA,col=rgb(0,0,0, 0.16))
 
+polygon(c(c(-1,-1),rev(c(2,2))),
+        c(c(-0.549,-1.5),rev(c(-0.549,-1.5))),
+        border=NA,col=rgb(0,0,0, 0.25))
 
-points(means,yaxis,col=analysis,pch=19,cex=2)
+arrows(0,lowerCI[1],
+       0,upperCI[1],
+       angle=90,code=3,
+       col="black",
+       length = 0,lwd=3.5)
 
-arrows(lowerCI,yaxis,
-       upperCI,yaxis,
-       angle=90,code=3,col=analysis,
-       length = 0,lwd=2.75)
+arrows(1,lowerCI[2],
+       1,upperCI[2],
+       angle=90,code=3,
+       col="black",
+       length = 0,lwd=3.5)
 
-text(0.9,yaxis,k,adj=1,cex=1.15)
-text(0.87,2.25,"k",adj=1,cex=1.15)
+points(0,means[1],
+       col="black",
+       pch=19,
+       cex=2)
+
+points(1,means[2],
+       col="black",
+       pch=19,
+       cex=2)
+
+
+text(0.04,-0.2,"k = 85",adj=0.5,cex=1.15)
+text(1.04,-0.2,"k = 87",adj=0.5,cex=1.15)
+
 
 dev.off()
-
 
 
 ##############################################################
